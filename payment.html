@@ -1,0 +1,59 @@
+<!-- payment.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оплата</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Верхняя навигация -->
+  <header class="navbar themed">
+    <div class="logo">
+      <h1>🐾 PetStore</h1>
+    </div>
+    <nav class="nav-links">
+      <a href="#" id="wishlist">❤️ Виш-лист</a>
+      <a href="#" id="cart-btn">🛒 Корзина</a>
+      <a href="login-register.html" id="login-btn">🐾 Вход</a> <!-- Ссылка на страницу входа -->
+      <select class="city-selector">
+        <option value="Москва">Москва</option>
+        <option value="Санкт-Петербург">Санкт-Петербург</option>
+        <option value="Екатеринбург">Екатеринбург</option>
+      </select>
+    </nav>
+  </header>
+
+  <!-- Основной контент -->
+  <main>
+    <section class="payment-form-section themed">
+      <h2>Данные для оплаты</h2>
+      <form id="payment-form" class="payment-form">
+        <label for="card-number">Номер карты:</label>
+        <input type="text" id="card-number" name="card-number" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+
+        <label for="card-expiry">Срок действия:</label>
+        <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/YY" required>
+
+        <label for="card-cvc">CVC:</label>
+        <input type="text" id="card-cvc" name="card-cvc" placeholder="XXX" required>
+
+        <label for="address">Адрес доставки:</label>
+        <input type="text" id="address" name="address" placeholder="Ваш адрес" required>
+
+        <button type="submit" class="themed-btn">Подтвердить оплату</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Контакты: +7 (999) 123-45-67</p>
+    <p>Email: info@petstore.ru</p>
+    <p>Соцсети: <a href="#">Instagram</a>, <a href="#">VK</a>, <a href="#">Facebook</a></p>
+    <a href="index.html" class="themed-btn">Перейти на главную</a> <!-- Ссылка на главную -->
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

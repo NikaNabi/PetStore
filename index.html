@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetStore</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Верхняя навигация -->
+  <header class="navbar themed">
+    <div class="logo">
+      <h1>🐾 PetStore</h1>
+    </div>
+    <nav class="nav-links">
+      <input type="text" placeholder="Поиск товаров..." class="search-bar">
+      <a href="#" id="wishlist">❤️ Виш-лист</a>
+      <a href="#" id="cart-btn">🛒 Корзина</a>
+      <a href="login-register.html" id="login-btn">🐾 Вход</a> <!-- Ссылка на страницу входа -->
+      <select class="city-selector">
+        <option value="Москва">Москва</option>
+        <option value="Санкт-Петербург">Санкт-Петербург</option>
+        <option value="Екатеринбург">Екатеринбург</option>
+        <option value="Казань">Казань</option>
+        <option value="Ижевск">Ижевск</option>
+        <option value="Тюмень">Тюмень</option>
+      </select>
+    </nav>
+  </header>
+
+  <!-- Основной контент -->
+  <main>
+    <!-- Промо -->
+    <section class="promo">
+      <h2>Актуальные акции</h2>
+      <div class="promo-banner themed">🐶 Скидки до 50% на товары для собак!</div>
+      <div class="promo-banner themed">🐾 Купи 2 корма – третий в подарок!</div>
+    </section>
+
+ <section class="products themed">
+        <h2>Популярные товары</h2>
+        <div class="product-grid">
+          <div class="product-card themed" data-category="cats">
+            <img src="Кошка.jpg" alt="Корм для кошек">
+            <h3 >Корм для кошек</h3>
+            <p>Для: 🐱 Кошек</p>
+            <p >Цена: 500₽</p>
+            <button class="add-to-cart" data-name="Корм для кошек" data-price="500">Добавить в корзину</button>
+            <button class="add-to-wishlist themed">❤️ В виш-лист</button>
+          </div>
+          <div class="product-card themed" data-category="dogs">
+            <img src="Игрушка.jpg" alt="Игрушка для собак">
+            <h3>Игрушка для собак</h3>
+            <p>Для: 🐶 Собак</p>
+            <p>Цена: 700₽</p>
+            <button class="add-to-cart" data-name="Игрушка для собак" data-price="700">Добавить в корзину</button>
+            <button class="add-to-wishlist themed">❤️ В виш-лист</button>
+          </div>
+          <div class="product-card themed" data-category="birds">
+            <img src="Клетка.jpg" alt="Клетка для птиц">
+            <h3>Клетка для птиц</h3>
+            <p>Для: 🦜 Птиц</p>
+            <p>Цена: 1200₽</p>
+            <button class="add-to-cart" data-name="Клетка для птиц" data-price="1200">Добавить в корзину</button>
+            <button class="add-to-wishlist themed">❤️ В виш-лист</button>
+          </div>
+          
+          <div class="product-card themed" data-category="birds">
+            <img src="Ошеник.jpeg" alt="Ошеник от блох">
+            <h3>Ошеник от блох</h3>
+            <p>Для: 🐱 Кошек </p>
+            <p>Цена: 120₽</p>
+            <button class="add-to-cart" data-name="Ошеник от блох" data-price="120">Добавить в корзину</button>
+            <button class="add-to-wishlist themed">❤️ В виш-лист</button>
+          </div>
+         
+          <!-- Добавьте больше товаров, если необходимо -->
+        </div>
+      </section> 
+
+      
+      <!-- Каталог -->
+      <section class="catalog themed">
+        <h2>Каталог товаров</h2>
+        <div class="categories">
+          <button class="category-btn" data-category="all">Все</button>
+          <button class="category-btn" data-category="cats">🐱 Кошки</button>
+          <button class="category-btn" data-category="dogs">🐶 Собаки</button>
+          <button class="category-btn" data-category="fish">🐟 Рыбы</button>
+          <button class="category-btn" data-category="birds">🦜 Птицы</button>
+          <button class="category-btn" data-category="Rats">🐭 Грызунов</button>
+        </div>
+        <div class="product-grid">
+            <div class="product-card themed" data-category="cats">
+                <img src="птиц.jpg" alt="Корм для попугаев">
+                <h3 >Корм для попугаев</h3>
+                <p>Для: 🦜 Птиц</p>
+                <p >Цена: 500₽</p>
+                <button class="add-to-cart" data-name="Корм для попугаев" data-price="500">Добавить в корзину</button>
+                <button class="add-to-wishlist themed">❤️ В виш-лист</button>
+              </div>
+              <div class="product-card themed" data-category="cats">
+                <img src="рыба.jpg" alt="Аквариум для рыб">
+                <h3 >Аквариум для рыб</h3>
+                <p>Для: 🐟 Рыб</p>
+                <p >Цена: 3500₽</p>
+                <button class="add-to-cart" data-name="Аквариум для рыб" data-price="3500">Добавить в корзину</button>
+                <button class="add-to-wishlist themed">❤️ В виш-лист</button>
+              </div>
+              <div class="product-card themed" data-category="cats">
+                <img src="колесо.jpeg" alt="Колесо для хомяка">
+                <h3 >Колесо для хомяка</h3>
+                <p>Для: 🐭 Грызунов</p>
+                <p >Цена: 850₽</p>
+                <button class="add-to-cart" data-name="Колесо для хомяка" data-price="850">Добавить в корзину</button>
+                <button class="add-to-wishlist themed">❤️ В виш-лист</button>
+              </div>
+              <div class="product-card themed" data-category="cats">
+                <img src="лежанка.jpg" alt="Лежанка для больших собак">
+                <h3 >Лежанка для больших собак</h3>
+                <p>Для: 🐶 Собак</p>
+                <p >Цена: 1100₽</p>
+                <button class="add-to-cart" data-name="Лежанка для больших собак" data-price="1100">Добавить в корзину</button>
+                <button class="add-to-wishlist themed">❤️ В виш-лист</button>
+              </div>
+              <div class="product-card themed" data-category="cats">
+                <img src="Шарик.jpg" alt="Мятный шарик для кошек">
+                <h3 >Мятный шарик для кошек</h3>
+                <p>Для: 🐱 Кошек</p>
+                <p >Цена: 50₽</p>
+                <button class="add-to-cart" data-name="Мятный шарик для кошек" data-price="50">Добавить в корзину</button>
+                <button class="add-to-wishlist themed">❤️ В виш-лист</button>
+              </div>
+              <div class="product-card themed" data-category="cats">
+                <img src="Поилка.jpeg" alt="Поилка для крыс">
+                <h3 >Поилка для крыск</h3>
+                <p>Для: 🐭 Грызунов</p>
+                <p >Цена: 100₽</p>
+                <button class="add-to-cart" data-name="Поилка для крыс" data-price="100">Добавить в корзину</button>
+                <button class="add-to-wishlist themed">❤️ В виш-лист</button>
+              </div>
+              <div class="product-card" data-category="birds">
+            <img src="Корм.jpg" alt="Корм для хомяков">
+            <h3>Корм для хомяков</h3>
+            <p>Для: 🐭 Грызунов</p>
+            <p>Цена: 250₽</p>
+            <button class="add-to-cart" data-name="Корм для хомяков" data-price="250">Добавить в корзину</button>
+            <button class="add-to-wishlist themed">❤️ В виш-лист</button>
+          </div> 
+          <div class="product-card">
+            <img src="Собкорм.jpg" alt="Корм для собак">
+            <h3>Корм для собак</h3>
+            <p>Для: 🐶 Собак</p>
+            <p>Цена: 400₽</p>
+            <button class="add-to-cart" data-name="Корм для собак" data-price="400">Добавить в корзину</button>
+            <button class="add-to-wishlist themed">❤️ В виш-лист</button>
+          </div>
+              </div>
+        </div>
+      </section>
+      <div class="news-section">
+        <h2>Новости</h2>
+        <div class="news-item">
+            <div>
+                <h3>Новое поступление товаров</h3>
+                <p>В нашем магазине новое поступление товаров для домашних животных!</p>
+            </div>
+        </div>
+        <div class="news-item">
+            <div>
+                <h3>Скидки на ветеринарные корма</h3>
+                <p>Ветеринарные корма со скидкой 10% до конца месяца!</p>
+            </div>
+        </div>
+    </div>
+      
+  <!-- Подвал -->
+  <footer>
+    <p>Контакты: +7 (999) 123-45-67</p>
+    <p>Email: info@petstore.ru</p>
+    <p>Соцсети: <a href="#">Instagram</a>, <a href="#">VK</a>, <a href="#">Facebook</a></p>
+    <a href="index.html" class="themed-btn">Перейти на главную</a> <!-- Ссылка на главную -->
+  </footer>    
+      <!-- Модальное окно входа -->
+      <div id="login-modal" class="modal hidden">
+        <div class="modal-content">
+          <span class="close-modal" id="close-login">&times;</span>
+          <h2>Вход или регистрация</h2>
+          <form id="login-form">
+            <label for="username">Логин:</label>
+            <input type="text" id="username" required>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Войти</button>
+          </form>
+        </div>
+      </div>
+
+<!-- Модальное окно корзины -->
+<div class="cart-modal" id="cart-modal">
+    <div class="cart-content">
+      <span class="close-btn" id="close-cart-btn">&times;</span>
+      <h2>Ваша корзина</h2>
+      <div id="cart-items">
+        <!-- Здесь будут отображаться товары -->
+      </div>
+      <div class="cart-footer">
+        <p>Итого: <span id="total-price">0₽</span></p>
+        <!-- Ваша корзина -->
+<button><a href="payment.html">Перейти к оплате</a></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Скрипты -->
+  <script src="scripts.js"></script>
+</body>
+</html>
+
+
+
