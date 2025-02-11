@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин товаров для домашних животных "Вкусняшки"</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            width: 10px;
+            height: 10px;
+            margin-right: 1px;
+        }
+        .search-bar {
+            flex-grow: 1;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .cart-icon {
+            display: flex;
+            align-items: center;
+        }
+        .cart-icon img {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .main-banner, .discount-banner {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .main-banner img, .discount-banner img {
+            max-width: 100%;
+            height: auto;
+        }
+        .container {
+            margin: 20px;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .product {
+            background-color: white;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .product h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .product p {
+            color: #888;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .product .price {
+            color: #4CAF50;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .product button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .product button:hover {
+            background-color: #45a049;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 5px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .news-section {
+            margin-top: 20px;
+        }
+        .news-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .news-item img {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .news-item div {
+            flex-grow: 1;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class=".news-item img img src="лого.PNG" alt="Логотип магазина"></div>
+        <div class="search-bar">
+            <input type="text" placeholder="Поиск товаров...">
+        </div>
+        <div class="nav-links">
+            <a href="#">Главная</a>
+            <a href="#" onclick="document.getElementById('accountModal').style.display='block'">Кабинет</a>
+            <a href="#">О нас</a>
+            <a href="#">Новости</a>
+            <a href="#">Акции</a>
+            <a href="#" class="cart-icon" onclick="document.getElementById('cartModal').style.display='block'">
+                Корзина
+            </a>
+            <a href="#">Виш-лист</a>
+        </div>
+    </header>
+    <div class="news-item">
+        <img src="акция.jpg" alt="Реклама Royal Canin">
+        <p>Купите сухой корм и получите три бесплатных пауча от Royal Canin!</p>
+    </div>
+    <div class="news-item">
+        <img src="проценты.PNG" alt="Скидки">
+        <p>Скидка 20% на все товары до конца месяца!</p>
+    </div>
+    <div class="container">
+        <h2>Наши товары</h2>
+        <div class="products">
+            <div class="product">
+                <img src="кормкош.jpg" alt="Корм для кошек">
+                <h3>Корм для кошек</h3>
+                <p>Высококачественный корм для кошек всех возрастов</p>
+                <p class="price">₽500</p>
+                <button onclick="addToCart('Корм для кошек', 500)">Добавить в корзину</button>
+                <button onclick="showProductModal('Корм для кошек', 'Высококачественный корм для кошек всех возрастов', 500)">Подробнее</button>
+            </div>
+            <div class="product">
+                <img src="кормсоб.jpg" alt="Корм для собак">
+                <h3>Корм для кошек</h3>
+                <p>Высококачественный корм для собак всех возрастов</p>
+                <p class="price">₽500</p>
+                <button onclick="addToCart('Корм для собак', 500)">Добавить в корзину</button>
+                <button onclick="showProductModal('Корм для кошек', 'Высококачественный корм для кошек всех возрастов', 500)">Подробнее</button>
+            </div>
+            <div class="product">
+                <img src="игрушка для собак.jpg" alt="Игрушки для собак">
+                <h3>Игрушки для собак</h3>
+                <p>Веселые и безопасные игрушки для вашей собаки</p>
+                <p class="price">₽300</p>
+                <button onclick="addToCart('Игрушки для собак', 300)">Добавить в корзину</button>
+                <button onclick="showProductModal('Корм для кошек', 'Высококачественный корм для кошек всех возрастов', 500)">Подробнее</button>
+            </div>
+            <div class="product">
+                <img src="игруш соб.jpeg" alt="Игрушки для кошек">
+                <h3>Игрушки для собак</h3>
+                <p>Веселые и безопасные игрушки для вашей кошки</p>
+                <p class="price">₽500</p>
+                <button onclick="addToCart('Игрушки для собак', 300)">Добавить в корзину</button>
+                <button onclick="showProductModal('Корм для кошек', 'Высококачественный корм для кошек всех возрастов', 500)">Подробнее</button>
+            </div>
+            <div class="product">
+                <img src="для рыбок.jpg" alt="Аксессуары для аквариума">
+                <h3>Аксессуары для аквариума</h3>
+                <p>Все необходимое для вашего аквариума</p>
+                <p class="price">₽700</p>
+                <button onclick="addToCart('Аксессуары для аквариума', 700)">Добавить в корзину</button>
+                <button onclick="showProductModal('Корм для кошек', 'Высококачественный корм для кошек всех возрастов', 500)">Подробнее</button>
+            </div>
+            <div class="product">
+                <img src="клетка.jpg" alt="Клетки для хомяка">
+                <h3>Клетки для хомяка</h3>
+                <p>Просторные и удобные клетки для ваших пушистых друзей</p>
+                <p class="price">₽1200</p>
+                <button onclick="addToCart('Клетки для хомяка', 1200)">Добавить в корзину</button>
+                <button onclick="showProductModal('Корм для кошек', 'Высококачественный корм для кошек всех возрастов', 500)">Подробнее</button>
+            </div>
+            <div class="product">
+                <img src="лежанка.jpg" alt="Лежанки для собак и кошек">
+                <h3>Лежанки для собак и кошек</h3>
+                <p>Комфортные лежанки для ваших питомцев</p>
+                <p class="price">₽800</p>
+                <button onclick="addToCart('Лежанки для собак и кошек', 800)">Добавить в корзину</button>
+                <button onclick="showProductModal('Корм для кошек', 'Высококачественный корм для кошек всех возрастов', 500)">Подробнее</button>
+            </div>
+            <div class="product">
+                <img src="витамины.jpg" alt="Витамины и добавки">
+                <h3>Витамины и добавки</h3>
+                <p>Полезные добавки для здоровья ваших питомцев</p>
+                <p class="price">₽400</p>
+                <button onclick="addToCart('Витамины и добавки', 400)">Добавить в корзину</button>
+                <button onclick="showProductModal('Корм для кошек', 'Высококачественный корм для кошек всех возрастов', 500)">Подробнее</button>
+            </div>
+            <div class="product">
+                <img src="лекарство.jpg" alt="Лекарство">
+                <h3>Лекарство</h3>
+                <p>Поддержание и лечение ваших питомцев</p>
+                <p class="price">₽600</p>
+                <button onclick="addToCart('Лекарство', 400)">Добавить в корзину</button>
+                <button onclick="showProductModal('Корм для кошек', 'Высококачественный корм для кошек всех возрастов', 500)">Подробнее</button>
+            </div>
+        </div>
+
+        <div class="news-section">
+            <h2>Новости</h2>
+            <div class="news-item">
+                <img src="поставка товара.PNG" alt="Новость 1">
+                <div>
+                    <h3>Новое поступление товаров</h3>
+                    <p>В нашем магазине новое поступление товаров для домашних животных!</p>
+                </div>
+            </div>
+            <div class="news-item">
+                <img src="проценты.PNG" alt="Новость 2">
+                <div>
+                    <h3>Скидки на ветеринарные корма</h3>
+                    <p>Ветеринарные корма со скидкой 10% до конца месяца!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="productModal" class="modal"> 
+        <div class="modal-content"> 
+            <span class="close" onclick="document.getElementById('productModal').style.display='none'">&times;</span> 
+            <h2 id="productTitle"></h2> 
+            <p id="productDescription"></p> 
+            <p id="productPrice" class="price">
+            </p>
+        </div>
+    </div>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('cartModal').style.display='none'">&times;</span>
+            <h2>Ваша корзина</h2>
+            <ul id="cart-items">
+                <li>Ваша корзина пока пуста.</li>
+            </ul>
+            <p>Итого: <span id="total-price">₽0</span></p>
+            <button onclick="document.getElementById('checkoutModal').style.display='block'">Заказать</button>
+        </div>
+    </div>
+
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('checkoutModal').style.display='none'">&times;</span>
+            <h2>Форма доставки</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Адрес:</label>
+                    <input type="text" id="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон:</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <button type="submit">Отправить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="accountModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('accountModal').style.display='none'">&times;</span>
+            <h2>Кабинет</h2>
+            <div class="form-group">
+                <label for="account-email">Электронная почта:</label>
+                <input type="email" id="account-email" required>
+            </div>
+            <div class="form-group">
+                <label for="account-password">Пароль:</label>
+                <input type="password" id="account-password" required>
+            </div>
+            <button type="submit">Войти</button>
+            <button type="button" onclick="showRegistrationForm()">Регистрация</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="nav-links">
+            <a href="#">Главная</a>
+            <a href="#">О нас</a>
+            <a href="#">Новости</a>
+            <a href="#">Акции</a>
+            <a href="#">Контакты</a>
+        </div>
+        <p>Мы используем файлы cookie. Подробнее в <a href="#" style="color: white; text-decoration: underline;">политике конфиденциальности</a>.</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        function addToCart(product, price) {
+            cart.push({ product, price });
+            displayCart();
+        }
+function displayCart() {
+            const cartItems = document.getElementById('cart-items');
+            const totalPrice = document.getElementById('total-price');
+            cartItems.innerHTML = '';
+            let total = 0;
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.product} - ₽${item.price}`;
+                cartItems.appendChild(li);
+                total += item.price;
+            });
+            totalPrice.textContent = `₽${total}`;
+        }
+
+        function showRegistrationForm() {
+            document.getElementById('accountModal').style.display = 'none';
+            document.getElementById('registerModal').style.display = 'block';
+        }
+        function showProductModal(title, description, price) {
+             document.getElementById('productTitle').textContent = title;
+              document.getElementById('productDescription').textContent = description;
+               document.getElementById('productPrice').textContent = {price};
+                document.getElementById('productModal').style.display = 'block'; 
+            } 
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
