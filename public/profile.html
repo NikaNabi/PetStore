@@ -21,7 +21,6 @@
         <aside class="profile-menu">
             <ul>
                 <li><button class="menu-btn active" data-section="personal">Личные данные</button></li>
-                <li><button class="menu-btn" data-section="orders">История заказов</button></li>
                 <li><button class="menu-btn" data-section="settings">Настройки</button></li>
                 <li><button class="menu-btn" data-section="address">Адрес доставки</button></li>
             </ul>
@@ -31,16 +30,9 @@
         <section class="profile-content">
             <div id="personal" class="profile-section active">
                 <h2>Личные данные</h2>
-                <p><strong>Имя:</strong> <span id="userName">Загрузка...</span><button id="editName">✏️</button></p>
-                <p><strong>Email:</strong> <span id="userEmail">Загрузка...</span><button id="editName">✏️</button></p>
-                <p><strong>Телефон:</strong> <span id="userPhone">Загрузка...</span><button id="editName">✏️</button></p>
-            </div>
-
-            <div id="orders" class="profile-section">
-                <h2>История заказов</h2>
-                <ul id="orderList">
-                    <li>Загрузка заказов...</li>
-                </ul>
+                <p><strong>Имя:</strong> <span id="userName">Загрузка...</span><button id="editNameBtn">✏️</button></p>
+                <p><strong>Email:</strong> <span id="userEmail">Загрузка...</span><button id="editEmailBtn">✏️</button></p>
+                <p><strong>Телефон:</strong> <span id="userPhone">Загрузка...</span><button id="editPhoneBtn">✏️</button></p>
             </div>
 
             <div id="settings" class="profile-section">
@@ -56,6 +48,7 @@
                 <p><strong>Текущий адрес:</strong> <span id="userAddress">Загрузка...</span></p>
                 <button id="editAddressBtn">Изменить адрес</button>
             </div>
+
         </section>
     </main>
 

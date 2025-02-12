@@ -1,0 +1,85 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fde2da; /* Цвет фона, как в шапке */
+    margin: 0;
+    padding: 0;
+}
+
+/* 🔼 Верхняя навигация */
+.navbar {
+    background-color: #f5b7a5; /* Нежно-розовый фон */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #5a1f08; /* Тёмно-коричневый */
+    font-size: 18px;
+    margin: 0 15px;
+}
+
+.navbar a:hover {
+    color: #b22222; /* Красноватый при наведении */
+}
+
+/* 📄 Форма оплаты */
+#payment-form {
+    width: 350px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Поля ввода */
+#payment-form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Адрес доставки (чуть длиннее) */
+#payment-form input[name="address"] {
+    width: calc(100% - 20px);
+}
+
+/* Кнопка */
+#payment-form button {
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#payment-form button:hover {
+    background: #218838;
+}
+
+/* 🔽 Подвал */
+.footer {
+    background-color: #f5b7a5; /* Цвет как в шапке */
+    color: #5a1f08;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

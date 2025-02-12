@@ -69,3 +69,92 @@ body {
 .modal.show {
   display: flex;
 }
+/* Основные стили */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f1f1f1;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  padding-top: 60px;
+}
+
+header {
+  background-color: #ffcc99; /* Цвет для верхней панели */
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Основные стили для навигации */
+.nav {
+  display: flex; /* Используем flexbox для выравнивания элементов */
+  justify-content: space-between; /* Распределяем элементы по краям экрана */
+  align-items: center; /* Выравниваем элементы по вертикали */
+  padding: 5px 0px; /* Отступы от краев */
+  width: 100%; /* Навигация растягивается на всю ширину */
+  box-sizing: border-box; /* Учитываем отступы в ширину */
+  position: fixed; /* Фиксируем на экране */
+  top: 0; /* Навигация в верхней части экрана */
+  left: 0; /* Левый край экрана */
+  right: 0; /* Правый край экрана */
+  z-index: 1000; /* Ставим на передний план */
+  background-color: #ffcc99; /* Белый фон */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Тень для навигации */
+  overflow: hidden; /* Скрываем элементы, выходящие за пределы */
+}
+
+/* Стили для ссылок навигации */
+nav a {
+  padding: 10px 15px; /* Отступы */
+  text-decoration: none; /* Убираем подчеркивание */
+  color: #333; /* Цвет текста */
+  white-space: nowrap; /* Запрещаем перенос текста */
+}
+
+
+/* Увеличиваем отступ сверху для основного контента, чтобы он не перекрывался навигацией */
+body {
+padding-top: 80px; /* Поставьте значение в зависимости от высоты вашей навигации */
+}
+
+/* Стили для навигации */
+.navbar .logo h1 {
+font-family: 'Comic Sans MS', sans-serif;
+font-size: 2em;
+color: #5c4033;
+display: flex;
+align-items: center;
+}
+
+.nav-links {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+
+.nav-links a {
+color: #5c4033;
+text-decoration: none;
+font-weight: bold;
+font-size: 1.2em;
+}
+
+.nav-links a:hover {
+color: #ff9933;
+}
+
+.search-bar {
+padding: 10px;
+font-size: 1em;
+border-radius: 5px;
+border: 1px solid #ccc;
+}
+
+select {
+padding: 10px;
+background-color: #fff;
+border-radius: 5px;
+border: 1px solid #ccc;
+}
