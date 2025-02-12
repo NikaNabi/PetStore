@@ -1,161 +1,71 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f1f1f1;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    padding-top: 60px;
-  }
-  
-  header {
-    background-color: #ffcc99; /* Цвет для верхней панели */
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-/* Верхняя навигация фиксированная */
+  font-family: 'Arial', sans-serif;
+  background-color: #f1f1f1;
+  text-align: center;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .navbar {
   position: fixed;
-  top: 0; /* Привязываем к верхней части страницы */
+  top: 0;
   left: 0;
   width: 100%;
-  background-color: #ffcc99; /* Цвет фона */
-  padding: 15px 30px;
+  background-color: #ffcc99;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 500; /* Чтобы навигация находилась поверх других элементов */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень для выделения */
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Увеличиваем отступ сверху для основного контента, чтобы он не перекрывался навигацией */
-body {
-  padding-top: 80px; /* Поставьте значение в зависимости от высоты вашей навигации */
-}
-
-/* Стили для навигации */
-.navbar .logo h1 {
-  font-family: 'Comic Sans MS', sans-serif;
-  font-size: 2em;
-  color: #5c4033;
+.auth-buttons {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.auth-buttons button {
+  padding: 12px 20px;
+  font-size: 18px;
+  background-color: #ff914d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 200px;
 }
 
-.nav-links a {
-  color: #5c4033;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.2em;
+.auth-buttons button:hover {
+  background-color: #ff6600;
 }
 
-.nav-links a:hover {
-  color: #ff9933;
-
-}
-
-/* Контейнер модального окна */
+/* Модальное окно */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
 }
 
-/* Контент модального окна */
 .modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    width: 380px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    transform: translateY(-20px);
-    transition: transform 0.3s ease-in-out;
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 380px;
+  text-align: center;
 }
 
-/* Показ модального окна */
 .modal.show {
-    display: flex;
-    opacity: 1;
-}
-
-.modal.show .modal-content {
-    transform: translateY(0);
-}
-
-/* Кнопка закрытия */
-.close {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    font-size: 24px;
-    cursor: pointer;
-    color: #ff914d;
-}
-
-.close:hover {
-    color: red;
-}
-
-/* Поля ввода */
-.modal-content input {
-    width: 90%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 2px solid #ff914d;
-    border-radius: 8px;
-    font-size: 16px;
-    outline: none;
-    transition: border 0.3s ease-in-out;
-}
-
-.modal-content input:focus {
-    border: 2px solid #ff6600;
-}
-
-/* Кнопки */
-.modal-content button {
-    width: 100%;
-    padding: 12px;
-    background-color: #ff914d;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-}
-
-.modal-content button:hover {
-    background-color: #ff6600;
-}
-
-/* Медиазапрос для мобильных устройств */
-@media (max-width: 480px) {
-    .modal-content {
-        width: 90%;
-        padding: 20px;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        text-align: center;
-    }
+  display: flex;
 }

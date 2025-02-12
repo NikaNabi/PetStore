@@ -1,82 +1,97 @@
-function closeModal(modalId){
-        document.getElementById(modalId).style.display="none";
+document.addEventListener("DOMContentLoaded", function () {
+    const loginBtn = document.getElementById("openLoginForm");
+    const registerBtn = document.getElementById("openRegisterForm");
+    const loginModal = document.getElementById("loginModal");
+    const registerModal = document.getElementById("registerModal");
+    const closeButtons = document.querySelectorAll(".close");
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+    const userDisplay = document.getElementById("userDisplay");
+
+    function showModal(modal) {
+        modal.classList.add("show");
     }
-    document.addEventListener("DOMContentLoaded", function () {
-    let loginModal = document.getElementById("loginModal");
-    let registerModal = document.getElementById("registerModal");
 
-    // Проверка наличия модальных окон
-    if (!loginModal || !registerModal) {
-        console.error("Ошибка: модальные окна не найдены!");
-        return;
+    function closeModal(modal) {
+        modal.classList.remove("show");
     }
 
-    // Открытие модальных окон
-    document.getElementById("openLoginForm").addEventListener("click", function () {
-        loginModal.style.display = "block";
-    });
+    if (loginBtn) loginBtn.addEventListener("click", () => showModal(loginModal));
+    if (registerBtn) registerBtn.addEventListener("click", () => showModal(registerModal));
 
-    document.getElementById("openRegisterForm").addEventListener("click", function () {
-        registerModal.style.display = "block";
-    });
-
-    // Закрытие модальных окон
-    document.querySelectorAll(".close").forEach(button => {
+    closeButtons.forEach(button => {
         button.addEventListener("click", function () {
-            this.closest(".modal").style.display = "none";
+            closeModal(this.closest(".modal"));
         });
     });
 
-    // Закрытие окна при клике вне его
     window.addEventListener("click", function (event) {
         if (event.target.classList.contains("modal")) {
-            event.target.style.display = "none";
+            closeModal(event.target);
         }
     });
 
-    // Функция для отправки данных на сервер
-    function sendRequest(url, data) {
-        return fetch(url, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        }).then(response => response.json());
+    function loginUser(username) {
+        localStorage.setItem("loggedInUser", username);
+        window.location.href = "index.html";
     }
-    
 
-    // Вход
-    document.getElementById("loginForm").addEventListener("submit", function (e) {
-        e.preventDefault();
-        let username = document.getElementById("loginUsername").value;
-        let password = document.getElementById("loginPassword").value;
+    if (loginForm) {
+        loginForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const username = document.getElementById("loginUsername").value.trim();
+            if (username) loginUser(username);
+        });
+    }
 
-        sendRequest("/login", { username, password })
-            .then(data => {
-                if (data.success) {
-                    alert("Вход успешен!");
-                    window.location.href = "/"; // Перенаправление на главную
-                } else {
-                    alert("Ошибка: " + data.message);
-                }
-            })
-            .catch(error => console.error("Ошибка:", error));
-    });
+    if (registerForm) {
+        registerForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const username = document.getElementById("registerUsername").value.trim();
+            if (username) loginUser(username);
+        });
+    }
 
-    // Регистрация
-    document.getElementById("registerForm").addEventListener("submit", function (e) {
-        e.preventDefault();
-        let username = document.getElementById("registerUsername").value;
-        let password = document.getElementById("registerPassword").value;
+    if (userDisplay) {
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        if (loggedInUser) {
+            userDisplay.textContent = `🐾 ${loggedInUser}`;
+            userDisplay.href = "#";
+            userDisplay.style.fontWeight = "bold";
 
-        sendRequest("/register", { username, password })
-            .then(data => {
-                if (data.success) {
-                    alert("Регистрация успешна!");
-                    window.location.href = "/"; // Перенаправление на главную
-                } else {
-                    alert("Ошибка: " + data.message);
-                }
-            })
-            .catch(error => console.error("Ошибка:", error));
-    });
+            const logoutBtn = document.createElement("a");
+            logoutBtn.textContent = "🚪 Выход";
+            logoutBtn.href = "#";
+            logoutBtn.style.marginLeft = "15px";
+            logoutBtn.style.fontWeight = "bold";
+
+            logoutBtn.addEventListener("click", function (event) {
+                event.preventDefault();
+                localStorage.removeItem("loggedInUser");
+                window.location.href = "index.html";
+            });
+
+            userDisplay.parentNode.appendChild(logoutBtn);
+        }
+    }
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.getElementById("loginForm");
+
+    if (loginForm) {
+        loginForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const usernameInput = document.getElementById("loginUsername");
+            const username = usernameInput.value.trim();
+
+            if (!username) {
+                alert("Введите логин!");
+                return;
+            }
+
+            localStorage.setItem("loggedUser", username); // Сохраняем имя пользователя
+            window.location.href = "index.html"; // Переход на главную страницу
+        });
+    }
 });

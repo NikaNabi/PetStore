@@ -1,60 +1,56 @@
 
-  <!DOCTYPE html>
-  <html lang="ru">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Вход и регистрация</title>
-      <link rel="stylesheet" href="css/auth-styles.css"> <!-- Подключение CSS -->
-  </head>
-  
-  <body>
-<!-- Верхняя навигация -->
-  <header class="navbar themed">
-    <div class="logo">
-      <h1>🐾 PetStore</h1>
-    </div>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход и регистрация</title>
+    <link rel="stylesheet" href="./css/auth-styles.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo"><h1>🐾 PetStore</h1></div>
     <nav class="nav-links">
-      <a href="#" id="wishlist">❤️ Виш-лист</a>
-      <a href="#" id="cart-btn">🛒 Корзина</a>
-      <a href="#" id="login-btn">🐾 Вход</a>
-      <select class="city-selector">
-        <option value="Москва">Москва</option>
-        <option value="Санкт-Петербург">Санкт-Петербург</option>
-        <option value="Екатеринбург">Екатеринбург</option>
-      </select>
-    </nav>  
-  </header>
+        <a href="index.html" id="wishlist">❤️ Виш-лист</a>
+        <a href="index.html" id="cart-btn">🛒 Корзина</a>
+        <a href="#" id="userDisplay">🐾 Вход</a>
+    </nav>
+</header>
+
 <div class="auth-buttons">
-      <button id="openLoginForm">Войти</button>
-      <button id="openRegisterForm">Регистрация</button>
-</div>  
-      <!-- Модальное окно входа -->
-      <div id="loginModal" class="modal">
-          <div class="modal-content">
-              <span class="close" >&times;</span>
-              <h2>Вход</h2>
-              <form id="loginForm">
-                  <input type="text" id="loginUsername" placeholder="Логин" required>
-                  <input type="password" id="loginPassword" placeholder="Пароль" required>
-                  <button type="submit">Войти</button>
-              </form>
-          </div>
-      </div>
-  
-      <!-- Модальное окно регистрации -->
-      <div id="registerModal" class="modal">
-          <div class="modal-content">
-              <span class="close" >&times;</span>
-              <h2>Регистрация</h2>
-              <form id="registerForm">
-                  <input type="text" id="registerUsername" placeholder="Логин" required>
-                  <input type="password" id="registerPassword" placeholder="Пароль" required>
-                  <button type="submit">Зарегистрироваться</button>
-              </form>
-          </div>
-      </div>
-  
-      <script src="./js/auth.js"></script> <!-- Подключение JS -->
-  </body>
-  </html>
+    <button id="openLoginForm">Войти</button>
+    <button id="openRegisterForm">Регистрация</button>
+</div>
+
+<!-- Модальное окно входа -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Вход</h2>
+        <form id="loginForm">
+            <input type="text" id="loginUsername" placeholder="Логин" required>
+            <input type="password" id="loginPassword" placeholder="Пароль" required>
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+</div>
+
+<!-- Модальное окно регистрации -->
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Регистрация</h2>
+        <form id="registerForm">
+            <input type="text" id="registerUsername" placeholder="Логин" required>
+            <input type="password" id="registerPassword" placeholder="Пароль" required>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
+</div>
+
+<script src="./js/auth.js"></script>
+
+</body>
+</html>
