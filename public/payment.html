@@ -24,35 +24,37 @@
       </select>
     </nav>
   </header>
-  <form id="payment-form">
-    <label for="card-number">Номер карты:</label>
-    <input type="text" id="card-number" maxlength="19" placeholder="0000 0000 0000 0000" required>
+  <div class="payment-container">
+    <form id="payment-form">
+        <label for="card-number">Номер карты:</label>
+        <input type="text" id="card-number" placeholder="0000 0000 0000 0000" required>
 
-    <label for="card-name">Имя владельца:</label>
-    <input type="text" id="card-name" placeholder="Иван Иванов" required>
+        <label for="card-name">Имя владельца:</label>
+        <input type="text" id="card-name" placeholder="Иван Иванов" required>
 
-    <label for="expiry-date">Срок действия:</label>
-    <input type="text" id="expiry-date" maxlength="5" placeholder="MM/YY" required>
+        <label for="expiry-date">Срок действия:</label>
+        <input type="text" id="expiry-date" placeholder="MM/YY" required>
 
-    <label for="cvv">CVV:</label>
-    <input type="password" id="cvv" maxlength="3" placeholder="000" required>
-
-    <label for="address">Адрес доставки:</label>
-    <input type="text" id="address" placeholder="Улица, дом, квартира, город" required>
-
-    <button type="submit">Оплатить</button>
-</form>
-
-<div id="success-message" class="hidden">
-    <p>Покупка успешно завершена!</p>
+        <label for="cvv">CVV:</label>
+<div style="display: flex; align-items: center;">
+    <input type="password" id="cvv" placeholder="000" required>
+    <button type="button" id="toggle-cvv">👁</button>
 </div>
 
-  <footer>
-    <p>Контакты: +7 (999) 123-45-67</p>
-    <p>Email: info@petstore.ru</p>
-    <p>Соцсети: <a href="#">Instagram</a>, <a href="#">VK</a>, <a href="#">Facebook</a></p>
-    <a href="index.html" class="themed-btn">Перейти на главную</a> <!-- Ссылка на главную -->
-  </footer>
+        <label for="address">Адрес доставки:</label>
+        <input type="text" id="address" placeholder="Улица, дом, квартира, город" required>
+
+        <button type="submit">Оплатить</button>
+    </form>
+
+    <div id="success-message" class="hidden">
+        <p>Покупка успешно завершена!</p>
+        <p>Контакты: +7 (999) 123-45-67</p>
+        <p>Email: info@petstore.ru</p>
+        <p>Соцсети: <a href="#">Instagram</a>, <a href="#">VK</a>, <a href="#">Facebook</a></p>
+        <a href="index.html">Перейти на главную</a>
+    </div>
+</div>
 
   <script src="./js//payment.js"></script>
 </body>

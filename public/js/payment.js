@@ -1,5 +1,5 @@
 document.getElementById("payment-form").addEventListener("submit", function (event) {
-    event.preventDefault(); // Отключаем стандартную отправку формы
+    event.preventDefault(); // Останавливаем отправку формы
 
     const cardNumber = document.getElementById("card-number").value.trim();
     const cardName = document.getElementById("card-name").value.trim();
@@ -7,7 +7,7 @@ document.getElementById("payment-form").addEventListener("submit", function (eve
     const cvv = document.getElementById("cvv").value.trim();
     const address = document.getElementById("address").value.trim();
 
-    // Проверка номера карты (16 цифр)
+    // Проверка номера карты (16 цифр с пробелами)
     if (!/^\d{4} \d{4} \d{4} \d{4}$/.test(cardNumber)) {
         alert("Введите корректный номер карты в формате 0000 0000 0000 0000");
         return;
@@ -37,25 +37,36 @@ document.getElementById("payment-form").addEventListener("submit", function (eve
         return;
     }
 
-    // Если все данные верны
+    // Если всё верно, показываем сообщение об успехе
     document.getElementById("success-message").classList.remove("hidden");
 
-    // Выводим сообщение с адресом (можно заменить на API отправки заказа)
+    // Выводим сообщение
     alert(`Ваш заказ будет доставлен по адресу: ${address}`);
 
+    // Перенаправление на главную через 2 секунды
     setTimeout(() => {
-        window.location.href = "index.html"; // Перенаправление на главную страницу
+        window.location.href = "index.html";
     }, 2000);
 });
 
+// Автоматическое форматирование номера карты
 document.getElementById("card-number").addEventListener("input", function (e) {
     let value = e.target.value.replace(/\D/g, "").substring(0, 16);
     value = value.replace(/(\d{4})/g, "$1 ").trim();
     e.target.value = value;
 });
 
+// Автоматическое форматирование срока действия
 document.getElementById("expiry-date").addEventListener("input", function (e) {
     let value = e.target.value.replace(/\D/g, "").substring(0, 4);
     if (value.length > 2) value = value.slice(0, 2) + "/" + value.slice(2);
     e.target.value = value;
+});
+document.getElementById("toggle-cvv").addEventListener("click", function () {
+    let cvvInput = document.getElementById("cvv");
+    if (cvvInput.type === "password") {
+        cvvInput.type = "text";
+    } else {
+        cvvInput.type = "password";
+    }
 });
