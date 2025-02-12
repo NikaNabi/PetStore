@@ -130,26 +130,34 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 document.addEventListener("DOMContentLoaded", function () {
-  const userDisplay = document.getElementById("userDisplay");
-  const logoutBtn = document.getElementById("logoutBtn");
-  const loggedUser = localStorage.getItem("loggedUser");
+  const userDisplay = document.getElementById("userDisplay"); // Кнопка профиля
+  const logoutBtn = document.getElementById("logoutBtn"); // Кнопка выхода
+  let loggedUser = localStorage.getItem("loggedUser");
 
-  if (userDisplay) {
-      if (loggedUser) {
-          userDisplay.textContent = `🐾 ${loggedUser}`;
-          userDisplay.href = "#"; // Отключаем переход на login
-          if (logoutBtn) logoutBtn.style.display = "inline-block";
-      } else {
-          userDisplay.textContent = "🐾 Вход";
-          userDisplay.href = "login.html";
-          if (logoutBtn) logoutBtn.style.display = "none";
-      }
+  // Проверяем, есть ли данные и корректны ли они
+  try {
+      loggedUser = loggedUser ? JSON.parse(loggedUser) : null;
+  } catch (error) {
+      console.error("Ошибка при разборе JSON:", error);
+      loggedUser = null;
   }
 
-  if (logoutBtn) {
-      logoutBtn.addEventListener("click", function () {
-          localStorage.removeItem("loggedUser");
-          window.location.reload();
-      });
+  if (userDisplay) {
+      if (loggedUser && loggedUser.name) {
+          userDisplay.textContent = `🐾 ${loggedUser.name}`;
+          userDisplay.href = "profile.html"; // Перенаправление в личный кабинет
+
+          if (logoutBtn) {
+              logoutBtn.style.display = "inline-block";
+              logoutBtn.addEventListener("click", function () {
+                  localStorage.removeItem("loggedUser");
+                  window.location.href = "index.html"; // Перезагрузка страницы
+              });
+          }
+      } else {
+          userDisplay.textContent = "🐾 Вход";
+          userDisplay.href = "login.html"; // Если не вошёл, ведём на логин
+          if (logoutBtn) logoutBtn.style.display = "none";
+      }
   }
 });

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="css/profile-styles.css"> <!-- Подключаем стили -->
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">🏠 Главная</a>
+            <a href="wishlist.html">❤️ Вишлист</a>
+            <a href="card.html">🛒 Корзина</a>
+            <a href="#" id="logoutBtn">🚪 Выход</a>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+        <!-- Левое меню -->
+        <aside class="profile-menu">
+            <ul>
+                <li><button class="menu-btn active" data-section="personal">Личные данные</button></li>
+                <li><button class="menu-btn" data-section="orders">История заказов</button></li>
+                <li><button class="menu-btn" data-section="settings">Настройки</button></li>
+                <li><button class="menu-btn" data-section="address">Адрес доставки</button></li>
+            </ul>
+        </aside>
+
+        <!-- Правая часть с контентом -->
+        <section class="profile-content">
+            <div id="personal" class="profile-section active">
+                <h2>Личные данные</h2>
+                <p><strong>Имя:</strong> <span id="userName">Загрузка...</span><button id="editName">✏️</button></p>
+                <p><strong>Email:</strong> <span id="userEmail">Загрузка...</span><button id="editName">✏️</button></p>
+                <p><strong>Телефон:</strong> <span id="userPhone">Загрузка...</span><button id="editName">✏️</button></p>
+            </div>
+
+            <div id="orders" class="profile-section">
+                <h2>История заказов</h2>
+                <ul id="orderList">
+                    <li>Загрузка заказов...</li>
+                </ul>
+            </div>
+
+            <div id="settings" class="profile-section">
+                <h2>Настройки</h2>
+                <button id="changePasswordBtn">Изменить пароль</button>
+                <label>
+                    <input type="checkbox" id="notifications"> Включить уведомления
+                </label>
+            </div>
+
+            <div id="address" class="profile-section">
+                <h2>Адрес доставки</h2>
+                <p><strong>Текущий адрес:</strong> <span id="userAddress">Загрузка...</span></p>
+                <button id="editAddressBtn">Изменить адрес</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/profile.js"></script> <!-- Подключаем JS -->
+</body>
+</html>

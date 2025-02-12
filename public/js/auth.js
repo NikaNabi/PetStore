@@ -32,7 +32,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function loginUser(username) {
-        localStorage.setItem("loggedInUser", username);
+        localStorage.setItem("loggedUser", JSON.stringify({
+            name:username,
+        email:"example@mail.com",
+    phone:"1234567890",
+address:"Не указан"}));
         window.location.href = "index.html";
     }
 
@@ -53,10 +57,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (userDisplay) {
-        const loggedInUser = localStorage.getItem("loggedInUser");
-        if (loggedInUser) {
-            userDisplay.textContent = `🐾 ${loggedInUser}`;
-            userDisplay.href = "#";
+        const loggedUser = localStorage.getItem("loggedUser");
+        if (loggedUser) {
+            userDisplay.textContent = `🐾 ${loggedUser}`;
+            userDisplay.href = "profile.html";
             userDisplay.style.fontWeight = "bold";
 
             const logoutBtn = document.createElement("a");
@@ -67,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             logoutBtn.addEventListener("click", function (event) {
                 event.preventDefault();
-                localStorage.removeItem("loggedInUser");
+                localStorage.removeItem("loggedUser");
                 window.location.href = "index.html";
             });
 
