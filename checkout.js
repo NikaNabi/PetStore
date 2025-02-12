@@ -4,9 +4,13 @@ document.getElementById("checkout-form").addEventListener("submit", function(eve
     let fullname = document.getElementById("fullname").value.trim();
     let address = document.getElementById("address").value.trim();
     let phone = document.getElementById("phone").value.trim();
+    if (!/^\d{10,15}/.test(phone)){
+        alert("");
+        return;
+    }
     let payment = document.getElementById("payment").value;
 
-    if (fullname === "" ||address === ""||phone === "") {
+    if (fullname === "" || address === ""|| phone === "") {
         alert("Заполните все поля!");
         return;
     }

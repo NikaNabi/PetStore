@@ -1,23 +1,67 @@
 body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f1f1;
+    color: #333;
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    padding-top: 60px;
+  }
+  
+  header {
+    background-color: #ffcc99; /* Цвет для верхней панели */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+/* Верхняя навигация фиксированная */
+.navbar {
+  position: fixed;
+  top: 0; /* Привязываем к верхней части страницы */
+  left: 0;
+  width: 100%;
+  background-color: #ffcc99; /* Цвет фона */
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 500; /* Чтобы навигация находилась поверх других элементов */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень для выделения */
 }
 
-/* Фикс отступа, чтобы шапка не перекрывала контент */
-.auth-container {
-    max-width: 400px;
-    margin: 100px auto 30px; /* Увеличила верхний отступ */
-    padding: 30px;
-    background-color: white;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    text-align: center;
+/* Увеличиваем отступ сверху для основного контента, чтобы он не перекрывался навигацией */
+body {
+  padding-top: 80px; /* Поставьте значение в зависимости от высоты вашей навигации */
 }
 
-/* Модальные окна */
+/* Стили для навигации */
+.navbar .logo h1 {
+  font-family: 'Comic Sans MS', sans-serif;
+  font-size: 2em;
+  color: #5c4033;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #5c4033;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.nav-links a:hover {
+  color: #ff9933;
+
+}
+
+/* Контейнер модального окна */
 .modal {
     display: none;
     position: fixed;
@@ -29,21 +73,37 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
-/* Уменьшенный размер окна */
+/* Контент модального окна */
 .modal-content {
     background-color: white;
-    padding: 25px;
+    padding: 30px;
     border-radius: 12px;
     text-align: center;
-    width: 350px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 380px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease-in-out;
 }
 
-/* Закрытие кнопкой */
+/* Показ модального окна */
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+/* Кнопка закрытия */
 .close {
-    float: right;
+    position: absolute;
+    right: 15px;
+    top: 10px;
     font-size: 24px;
     cursor: pointer;
     color: #ff914d;
@@ -54,7 +114,7 @@ body {
 }
 
 /* Поля ввода */
-.auth-container input {
+.modal-content input {
     width: 90%;
     padding: 12px;
     margin: 10px 0;
@@ -62,11 +122,15 @@ body {
     border-radius: 8px;
     font-size: 16px;
     outline: none;
-    transition: 0.3s;
+    transition: border 0.3s ease-in-out;
+}
+
+.modal-content input:focus {
+    border: 2px solid #ff6600;
 }
 
 /* Кнопки */
-.auth-container button {
+.modal-content button {
     width: 100%;
     padding: 12px;
     background-color: #ff914d;
@@ -76,9 +140,22 @@ body {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background 0.3s ease-in-out;
 }
 
-.auth-container button:hover {
+.modal-content button:hover {
     background-color: #ff6600;
+}
+
+/* Медиазапрос для мобильных устройств */
+@media (max-width: 480px) {
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+    }
 }

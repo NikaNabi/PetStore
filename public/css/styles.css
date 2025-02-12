@@ -224,12 +224,11 @@ select {
   
   /* Добавим текстуры для фона и некоторых элементов */
   body {
-    background-image: url('animal-texture.jpg'); /* Добавить текстуру в фоне */
+    /* Добавить текстуру в фоне */
     background-repeat: repeat;
   }
   
-  .product-card {
-    background-image: url('paw-print-texture.png'); /* Добавить следы лап на карточки */
+  .product-card { /* Добавить следы лап на карточки */
     background-repeat: no-repeat;
     background-size: 20%;
     background-position: top right;
@@ -257,8 +256,7 @@ select {
     max-width: 500px;
     margin: 10% auto;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-image: url('paw-print-texture.png'); /* Добавление текстуры следов лап */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавление текстуры следов лап */
     background-repeat: no-repeat;
     background-position: top right;
   }
